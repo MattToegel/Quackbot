@@ -12,7 +12,6 @@ module.exports.QuackBot = () => {
             return false;
         },
         AssignRoles: async function (mentions, message) {
-            console.log("function called", mentions, mentions.length);
             if (mentions.length > 0) {
                 console.log("I was mentioned, let's do this");
                 const result = await fetch.fetch(`https://us-central1-learn-e1de9.cloudfunctions.net/mapDiscord?discord=${message.author.id}`, {

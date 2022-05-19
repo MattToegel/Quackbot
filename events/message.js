@@ -15,10 +15,8 @@ module.exports = {
                 username: d.username
             }
         });
-        console.log("Mentioned ", mention);
         //TODO assign roles
         //call mentions
-        console.log("Quackbot? ", message.client.quackbot);
         if (message.client.quackbot) {
             await message.client.quackbot.AssignRoles(mention, message);
         }
