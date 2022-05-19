@@ -9,6 +9,10 @@ module.exports = {
                 .setDescription('The name of the role to delete')
                 .setRequired(true)),
     async execute (interaction) {
+        if (!interaction.member.hasPermission("ADMINISTRATOR")) {
+            interaction.reply("Only admins can use this command");
+            return;
+        };
         console.log(interaction.options.getString("name"));
         const newRole = interaction.options.getString("name").toUpperCase();
         if (newRole === "ADMIN") {

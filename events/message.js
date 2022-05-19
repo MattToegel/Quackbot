@@ -1,12 +1,16 @@
-const fetch = require('cross-fetch');
 module.exports = {
     name: 'messageCreate',
     async execute (message) {
         if (message.author.bot) return;
         //console.log("Message: ", message, message.channel.name, message.mentions);
         //console.log("roles", message.member.roles.cache.map(r => r.name));
-        let debug = false;
-        if ((debug && message.channel.id != "758428198735708229") && !message.channel.id) {
+        let debug = message.client.quackbot ? message.client.quackbot.debug : true;
+        console.log("debug mode", debug);
+        if (!message.channel.id) {
+            message.reply("Most interactions won't work via DMs");
+            return;
+        }
+        if ((debug && message.channel.id != "758428198735708229")) {
             console.log("Not test channel, ignoring");
             return;
         }
