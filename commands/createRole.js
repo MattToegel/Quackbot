@@ -10,7 +10,7 @@ module.exports = {
                 .setRequired(true))
         .addStringOption(option => option.setName('copyfrom').setDescription('Role to copy permissions from').setRequired(false)),
     async execute (interaction) {
-        if (!interaction.member.hasPermission("ADMINISTRATOR")) {
+        if (!interaction.member.roles.cache.some(role => role.name === 'admin')) {
             interaction.reply("Only admins can use this command");
             return;
         };

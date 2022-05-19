@@ -5,7 +5,7 @@ module.exports = {
         .setName('getdebug')
         .setDescription('Gets debug status'),
     async execute (interaction) {
-        if (!interaction.member.hasPermission("ADMINISTRATOR")) {
+        if (!interaction.member.roles.cache.some(role => role.name === 'admin')) {
             interaction.reply("Only admins can use this command");
             return;
         };
