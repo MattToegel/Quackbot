@@ -5,7 +5,8 @@ module.exports = {
         if (message.author.bot) return;
         //console.log("Message: ", message, message.channel.name, message.mentions);
         //console.log("roles", message.member.roles.cache.map(r => r.name));
-        if (message.channel.id != "758428198735708229" && !message.channel.id) {
+        let debug = false;
+        if ((debug && message.channel.id != "758428198735708229") && !message.channel.id) {
             console.log("Not test channel, ignoring");
             return;
         }

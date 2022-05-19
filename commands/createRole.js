@@ -10,6 +10,10 @@ module.exports = {
                 .setRequired(true))
         .addStringOption(option => option.setName('copyfrom').setDescription('Role to copy permissions from').setRequired(false)),
     async execute (interaction) {
+        if (!interaction.member.hasPermission("ADMINISTRATOR")) {
+            interaction.reply("Only admins can use this command");
+            return;
+        };
         console.log(interaction.options.getString("name"));
         const newRole = interaction.options.getString("name").toUpperCase();
         const target = interaction.options.getString("copyfrom");

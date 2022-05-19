@@ -3,6 +3,7 @@ module.exports.QuackBot = () => {
 
     return {
         jokes: [],
+        debug: false,
         RandomJoke: function () {
             let jc = this.jokes.length;
             if (jc > 0) {
